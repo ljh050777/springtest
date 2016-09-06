@@ -26,12 +26,14 @@
         <level value="INFO"/>  
         <appender-ref ref="console-infolog"/>  
     </logger>
-     
+    
+    <!-- Query Result
     <logger name="jdbc.resultsettable" additivity="false">  
         <level value="INFO"/>  
         <appender-ref ref="console"/>  
     </logger>  
- 
+ 	-->
+    
     <!-- Root Logger -->
     <root>
         <priority value="off"/>

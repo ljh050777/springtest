@@ -14,5 +14,24 @@
                 contact            
         ]]>
     </select>
+    
+    <insert id="insertBoard" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO contact
+        (
+            name,
+            email, 
+            message, 
+            pid
+        )
+        VALUES
+        (             
+            #{NAME}, 
+            #{EMAIL},
+            #{MESSAGE},
+            #{PID}
+        )
+	    ]]>
+	</insert>
      
 </mapper>

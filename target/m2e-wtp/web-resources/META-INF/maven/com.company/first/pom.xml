@@ -62,6 +62,13 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>5.1.31</version>
 		</dependency>
+		
+		<!-- MyBatis Query log -->
+		<dependency>
+		    <groupId>org.lazyluke</groupId>
+		    <artifactId>log4jdbc-remix</artifactId>
+		    <version>0.2.7</version>
+		</dependency>
 				
 		<!-- MappingJacksonJsonView -->
 		<dependency>

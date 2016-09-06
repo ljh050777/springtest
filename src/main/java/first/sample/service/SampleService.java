@@ -7,5 +7,7 @@ public interface SampleService {
 
 	//List<Map<String, Object>> selectBoardList(Map<String, Object> commandMap);
 	List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception;
+	
+	void insertBoard(Map<String, Object> map) throws Exception;
 
 }
