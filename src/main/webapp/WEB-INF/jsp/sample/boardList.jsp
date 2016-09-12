@@ -2,9 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>first</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="/WEB-INF/include/include-header.jsp" %>
 </head>
 <body>
 <h2>MY-SQL DB 연동 테스트</h2>
@@ -26,9 +24,12 @@
     <tbody>
         <c:choose>
             <c:when test="${fn:length(list) > 0}">
-                <c:forEach items="${list }" var="row">
-                    <tr>
-                        <td>${row.name }</td>
+                <c:forEach items="${list }" var="row" >
+                    <tr>                        
+                        <td class="title">
+                                <a href="#this" name="title">${row.name }</a>
+                                <input type="hidden" id="PID" value="${row.pid }">
+                        </td>
                         <td>${row.email }</td>
                         <td>${row.message }</td>                        
                         <td>${row.pid }</td>
@@ -40,9 +41,39 @@
                     <td colspan="4">조회된 결과가 없습니다.</td>
                 </tr>
             </c:otherwise>
-        </c:choose>
-         
+        </c:choose>         
     </tbody>
 </table>
+<br/>
+<a href="#this" class="btn" id="write">입력</a>
+
+<%@ include file="/WEB-INF/include/include-body.jsp" %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#write").on("click", function(e){ //글쓰기 버튼
+                e.preventDefault();
+                fn_openBoardWrite();
+            }); 
+             
+            $("a[name='title']").on("click", function(e){ //제목 
+                e.preventDefault();
+                fn_openBoardDetail($(this));
+            });
+        });
+         
+         
+        function fn_openBoardWrite(){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
+            comSubmit.submit();
+        }
+         
+        function fn_openBoardDetail(obj){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
+            comSubmit.addParam("PID", obj.parent().find("#PID").val());
+            comSubmit.submit();
+        }
+    </script>
 </body>
 </html>

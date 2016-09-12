@@ -32,6 +32,43 @@
             #{PID}
         )
 	    ]]>
-	</insert>
+	</insert>	
+	
+ 
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+	    <![CDATA[
+	        SELECT
+	            name,
+	            email, 
+	            message, 
+	            pid
+	        FROM
+	            contact
+	        WHERE
+	            pid = #{PID}        
+	    ]]>
+	</select>
+	
+	<update id="updateBoard" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE contact 
+	        SET
+	            name = #{NAME},
+	            email = #{EMAIL},
+	            message = #{MESSAGE},
+	            pid = #{PID}
+	        WHERE
+	            pid = #{PID}    
+	    ]]>
+	</update>
+	
+	<delete id="deleteBoard" parameterType="hashmap">
+	    <![CDATA[
+	        DELETE 
+	        FROM contact	        
+	        WHERE
+	            pid = #{PID}
+	    ]]>
+	</delete>
      
 </mapper>

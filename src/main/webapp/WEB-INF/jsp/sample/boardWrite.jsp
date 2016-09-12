@@ -8,25 +8,32 @@
     <form id="frm">
         <table class="board_view">
             <colgroup>
-                <col width="15%">
+                <col width="20%">
                 <col width="*"/>
             </colgroup>
-            <caption>작성</caption>
+            <caption>사용자 등록</caption>
             <tbody>
                 <tr>
                     <th scope="row">이름</th>
                     <td><input type="text" id="NAME" name="NAME" class="wdp_90"></input></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="view_text">
-                        <textarea rows="20" cols="100" title="내용" id="PID" name="PID"></textarea>
-                    </td>
+                    <th scope="row">이메일</th>
+                    <td><input type="text" id="EMAIL" name="EMAIL" class="wdp_90"></input></td>
                 </tr>
+                <tr>
+                    <th scope="row">메세지</th>
+                    <td><input type="text" id="MESSAGE" name="MESSAGE" class="wdp_90"></input></td>
+                </tr>
+                <tr>
+                    <th scope="row">등록번호</th>
+                    <td><input type="text" id="PID" name="PID" class="wdp_90"></input></td>
+                </tr>                                
             </tbody>
         </table>
          
-        <a href="#this" class="btn" id="write" >작성하기</a>
-        <a href="#this" class="btn" id="list" >목록으로</a>
+        <a href="#this" class="btn" id="write" >저장</a>
+        <a href="#this" class="btn" id="list" >목록</a>
     </form>
      
     <%@ include file="/WEB-INF/include/include-body.jsp" %>
